@@ -6,7 +6,7 @@ def get_data():
     with open(FILE_PATH) as file:
         return json.load(file)
 
-id_ = 5
+id_ = 7
 def get_id():
     global id_
     id_ += 1
@@ -37,9 +37,10 @@ def list_of_products():
 def detail_retrieve():
     data = get_data()
     id_ = int(input('Enter id of product: '))
-    product = list(filter(lambda x : x['id'] == id_, data))
-    if  product: return product[0]
-    else : return 'NOT FOUND'
+    product = list(filter(lambda x: x['id'] == id_, data))
+    for i in product:
+        print(f'{i}\n')
+    return 'model'
 
 def update_product():
     data = get_data()
@@ -75,7 +76,7 @@ def update_product():
 
 def delete_product():
     data = get_data()
-    id_product = int(input('Enter brand of product: '))
+    id_product = int(input('Enter id of product: '))
   
     product = list(filter(lambda x : x['id'] == id_product, data))[0]
     if not product: return 'NOT FOUND'
@@ -85,3 +86,5 @@ def delete_product():
 
     json.dump(data, open(FILE_PATH, 'w'))
     return 'Succesfully deleted'
+
+

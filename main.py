@@ -17,7 +17,7 @@ def main():
         print('Invalid choice')
         main()
     
-    ask = input('Do you want to continue (yes\no)')
+    ask = input('Do you want to continue (yes\ no)')
     if ask.lower() == 'yes':
         main()
     else:
